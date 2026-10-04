@@ -27,9 +27,9 @@ public class VecinosTest {
 	@Test
 	public void testVerticeUniversal() {	//quiere decir que es vecinos de todos
 		Grafo grafo = new Grafo(4);
-		grafo.agregarArista(1, 0);
-		grafo.agregarArista(1, 2);
-		grafo.agregarArista(1, 3);
+		grafo.agregarArista(1, 0,50);
+		grafo.agregarArista(1, 2,50);
+		grafo.agregarArista(1, 3,50);
 		
 		int[] esperado = {0,2,3};
 		AssertsAuxiliares.iguales(esperado, grafo.vecinos(1));
@@ -38,9 +38,9 @@ public class VecinosTest {
 	@Test
 	public void testVerticeNormal() {
 		Grafo grafo = new Grafo(5);
-		grafo.agregarArista(1,3);
-		grafo.agregarArista(2,3);
-		grafo.agregarArista(2,4);
+		grafo.agregarArista(1,3,50);
+		grafo.agregarArista(2,3,50);
+		grafo.agregarArista(2,4,50);
 		
 		int[] esperado = {1,2};
 		AssertsAuxiliares.iguales(esperado, grafo.vecinos(3));

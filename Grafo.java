@@ -5,35 +5,47 @@ import java.util.Set;
 
 public class Grafo {
 	
-	private boolean[][] matrizAdyacencia;
+	private Double[][] matrizAdyacencia;
 	
 	public Grafo(int vertices) {
 		
-		matrizAdyacencia = new boolean[vertices][vertices];
+		matrizAdyacencia = new Double[vertices][vertices];
 		
 	}
 	
-	public void agregarArista(int i, int j) {
+	public void agregarArista(int i, int j, double peso) {
 		verificarVertice(i);
 		verificarVertice(j);
 		verificarBucles(i, j);
-		matrizAdyacencia[i][j] = true;
-		matrizAdyacencia[j][i] = true;
+		matrizAdyacencia[i][j] = peso;
+		matrizAdyacencia[j][i] = peso;
 	}
 	
 	public void eliminarArista(int i, int j) {
 		verificarVertice(i);
 		verificarVertice(j);
 		verificarBucles(i, j);
-		matrizAdyacencia[i][j] = false;
-		matrizAdyacencia[j][i] = false;
+		matrizAdyacencia[i][j] = null;
+		matrizAdyacencia[j][i] = null;
 	}
 
 	public boolean existeArista(int i, int j) {
 		verificarVertice(i);
 		verificarVertice(j);
 		verificarBucles(i, j);
-		return matrizAdyacencia[i][j];
+		if(matrizAdyacencia[i][j] != null) {
+			return true;
+		}
+		else return false;
+	}
+	
+	public double pesoArista(int i, int j) {
+		if(!existeArista(i, j)) {
+			throw new IllegalArgumentException("No existe una ariste entre estos vertices");
+		}
+		else {
+			return matrizAdyacencia[i][j];
+		}
 	}
 	
 	public int tamano()

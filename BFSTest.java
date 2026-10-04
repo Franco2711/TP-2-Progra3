@@ -32,7 +32,7 @@ public class BFSTest
 	public void grafoDosVerticesConexoTest() 
 	{
 		Grafo g = new Grafo(2);
-		g.agregarArista(0, 1);
+		g.agregarArista(0,1,50);
 		assertTrue(BFS.esConexo(g));
 	}
 	
@@ -73,13 +73,13 @@ public class BFSTest
 	private Grafo inicializarGrafoInconexo() 
 	{
 		Grafo g = new Grafo(7);
-		g.agregarArista(0, 1);
-		g.agregarArista(0, 2);
-		g.agregarArista(1, 2);
-		g.agregarArista(1, 3);
-		g.agregarArista(2, 4);
-		g.agregarArista(3, 4);
-		g.agregarArista(5, 6);
+		g.agregarArista(0, 1,50);
+		g.agregarArista(0, 2,50);
+		g.agregarArista(1, 2,50);
+		g.agregarArista(1, 3,50);
+		g.agregarArista(2, 4,50);
+		g.agregarArista(3, 4,50);
+		g.agregarArista(5, 6,50);
 		
 		return g;		
 	}
@@ -87,12 +87,12 @@ public class BFSTest
 	private Grafo inicializarGrafoCompleto() 
 	{
 		Grafo g = new Grafo(4);
-		g.agregarArista(0, 1);
-		g.agregarArista(1, 2);
-		g.agregarArista(2, 3);
-		g.agregarArista(0, 3);
-		g.agregarArista(0, 2);
-		g.agregarArista(1, 3);
+		g.agregarArista(0, 1,50);
+		g.agregarArista(1, 2,50);
+		g.agregarArista(2, 3,50);
+		g.agregarArista(0, 3,50);
+		g.agregarArista(0, 2,50);
+		g.agregarArista(1, 3,50);
 		
 		return g;		
 	}
