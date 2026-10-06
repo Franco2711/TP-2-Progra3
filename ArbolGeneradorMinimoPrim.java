@@ -6,6 +6,9 @@ import java.util.List;
 public class ArbolGeneradorMinimoPrim {
 	
 	public static List<Arista> calcularAGM(Grafo g) {
+		if(g.tamano() == 0) {
+			throw new IllegalArgumentException("El grafo no existe ya que no cuenta con vertices");
+		}
 		List<Arista> arbol = new ArrayList<>();
 		boolean[] marcados = new boolean[g.tamano()];
 		
