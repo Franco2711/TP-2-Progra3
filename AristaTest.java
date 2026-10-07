@@ -88,5 +88,25 @@ public class AristaTest {
 		grafo.eliminarArista(2,4);
 		assertFalse(grafo.existeArista(2,4));
 	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testPesoAristaInexistente() {
+		Grafo grafo = new Grafo(5);
+		grafo.agregarArista(1, 2, 50);
+		grafo.pesoArista(3, 4);
+	}
 
+	@Test
+	public void testConsultarPesoArista() {
+		Grafo grafo = new Grafo(5);
+		grafo.agregarArista(1, 2, 50);
+		assertEquals(50.0, grafo.pesoArista(1, 2), 0.001);
+	}
+	
+	@Test
+	public void testPesoSimetria() {
+		Grafo grafo = new Grafo(5);
+		grafo.agregarArista(1, 2, 50);
+		assertEquals(50.0, grafo.pesoArista(2, 1), 0.001);
+	}
 }

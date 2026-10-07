@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class BFS 
 {
-	private static List<Integer> lista;
-	private static boolean[] marcados;
+	private static List<Integer> listaVisitados;
+	private static boolean[] visitados;
 	
 	public static boolean esConexo(Grafo grafo) 
 	{
@@ -18,34 +18,34 @@ public class BFS
 		return grafo.tamano() == 0 || alcanzables(grafo, 0).size() == grafo.tamano();
 	}
 
-	public static Set<Integer> alcanzables(Grafo g, int origen) 
+	public static Set<Integer> alcanzables(Grafo grafo, int verticeOrigen) 
 	{
-		Set<Integer> ret = new HashSet<Integer>();
-		inicializarRecorrido(g, origen);
+		Set<Integer> resultado = new HashSet<Integer>();
+		inicializarRecorrido(grafo, verticeOrigen);
 		
-		while (!lista.isEmpty()) 
+		while (!listaVisitados.isEmpty()) 
 		{
-			int i = lista.get(0);
-			marcados[i] = true;
+			int i = listaVisitados.get(0);
+			visitados[i] = true;
 			
-			ret.add(i);
-			agregarVecinosPendientes(g, i);
-			lista.remove(0);
+			resultado.add(i);
+			agregarVecinosPendientes(grafo, i);
+			listaVisitados.remove(0);
 		}
-		return ret;
+		return resultado;
 	}
 
 	private static void agregarVecinosPendientes(Grafo g, int vertice) 
 	{		
 		for (int vecino : g.vecinos(vertice))
-			if (!marcados[vecino] && !lista.contains(vecino))
-				lista.add(vecino);
+			if (!visitados[vecino] && !listaVisitados.contains(vecino))
+				listaVisitados.add(vecino);
 	}
 	
-	private static void inicializarRecorrido(Grafo g, int origen) 
+	private static void inicializarRecorrido(Grafo g, int verticeOrigen) 
 	{
-		lista = new LinkedList<Integer>();
-		marcados = new boolean[g.tamano()];
-		lista.add(origen);
+		listaVisitados = new LinkedList<Integer>();
+		visitados = new boolean[g.tamano()];
+		listaVisitados.add(verticeOrigen);
 	}
 }

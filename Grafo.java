@@ -41,7 +41,7 @@ public class Grafo {
 	
 	public double pesoArista(int i, int j) {
 		if(!existeArista(i, j)) {
-			throw new IllegalArgumentException("No existe una ariste entre estos vertices");
+			throw new IllegalArgumentException("No existe una arista entre estos vertices");
 		}
 		else {
 			return matrizAdyacencia[i][j];
