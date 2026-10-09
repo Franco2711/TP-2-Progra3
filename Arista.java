@@ -6,9 +6,9 @@ public class Arista implements Comparable<Arista> {
 	private int vertice2;
 	private double peso;
 
-	public Arista(int v1, int v2, double peso) {
-		this.vertice1 = v1;
-		this.vertice2 = v2;
+	public Arista(int vertice1, int vertice2, double peso) {
+		this.vertice1 = vertice1;
+		this.vertice2 = vertice2;
 		this.peso = peso;
 	}
 
